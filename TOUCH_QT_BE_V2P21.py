@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 #Author:   BEVERSON
-#DateTime: 2021/01/12 20:19:01 PST
+#DateTime: 2021/01/14 19:01:01 PST
 #Notes:    Default path for bash is "/bin/bash". Optional path for bash is "/usr/local/bin/bash".
 #Notes:    Default path for python is "/usr/bin/python". Optional path for python is "/usr/local/bin/python".
 
-REVISION_STATUS="2021/01/12";
+REVISION_STATUS="2021/01/14";
 
 import time, os, commands, sys, shutil, random; #Define python modules.
 
@@ -74,7 +74,7 @@ Set_BBIC5_B1_R11_Flag=0;      #Set flag to default (0). QT10GA-B1,QT10GS-B1,QT10
 Set_BBIC5_B1_R12_Flag=0;      #Set flag to default (0). QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
 Set_BBIC5_B1_WS_R01_Flag=0;   #Set flag to default (0). QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
 Set_BBIC5_C0_R07_Flag=0;      #Set flag to default (0). QT10GA-C0,QT10GS-C0,QT10GT-C0,QT10GU-C0 (BBIC5).
-Set_BBIC5_D0_R01A_Flag=0;     #Set flag to default (0). QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5).
+Set_BBIC5_D0_R02_Flag=0;      #Set flag to default (0). QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5).
 Set_BBIC6_A0_R01_Flag=0;      #Set flag to default (0). QT10GA-AX2,QT10GS-AX2,QT10GT-AX2,QT10GU-AX2 (BBIC6).
 Set_PMIC_A4_R01_Flag=0;       #Set flag to default (0). PMIC-A4 (PMIC).
 Set_PMIC_C0_R01_Flag=0;       #Set flag to default (0). PMIC-C0 (PMIC).
@@ -97,7 +97,7 @@ while (i < len(sys.argv)):
 	elif (sys.argv[i] == "-bbic5_b1_r12"):        Set_BBIC5_B1_R12_Flag=1;
 	elif (sys.argv[i] == "-bbic5_b1_ws_r01"):     Set_BBIC5_B1_WS_R01_Flag=1;
 	elif (sys.argv[i] == "-bbic5_c0_r07"):        Set_BBIC5_C0_R07_Flag=1;
-	elif (sys.argv[i] == "-bbic5_d0_r01a"):       Set_BBIC5_D0_R01A_Flag=1;
+	elif (sys.argv[i] == "-bbic5_d0_r02"):        Set_BBIC5_D0_R02_Flag=1;
 	elif (sys.argv[i] == "-bbic6_a0_r01"):        Set_BBIC6_A0_R01_Flag=1;
 	elif (sys.argv[i] == "-pmic_a4_r01"):         Set_PMIC_A4_R01_Flag=1;
 	elif (sys.argv[i] == "-pmic_c0_r01"):         Set_PMIC_C0_R01_Flag=1;
@@ -158,7 +158,7 @@ if (ExitStatus0 == 1):
 	print("%cbbic5_b1_r12)        Set_BBIC5_B1_R12_Flag=1;        %s" % ("-", "#(QT TE QT10GA-B1 [BBIC5 FT Release 12])"));
 	print("%cbbic5_b1_ws_r01)     Set_BBIC5_B1_WS_R01_Flag=1;     %s" % ("-", "#(QT TE QT10GA-B1 [BBIC5 WS Release 01])"));
 	print("%cbbic5_c0_r07)        Set_BBIC5_C0_R07_Flag=1;        %s" % ("-", "#(QT TE QT10GA-C0 [BBIC5 FT Release 07])"));
-	print("%cbbic5_d0_r01a)       Set_BBIC5_D0_R01A_Flag=1;       %s" % ("-", "#(QT TE QT10GA-D0 [BBIC5 FT Release 01A])"));
+	print("%cbbic5_d0_r02)        Set_BBIC5_D0_R02_Flag=1;        %s" % ("-", "#(QT TE QT10GA-D0 [BBIC5 FT Release 02])"));
 	print("%cbbic6_a0_r01)        Set_BBIC6_A0_R01_Flag=1;        %s" % ("-", "#(QT TE QT10GA-AX2 [BBIC6 FT Release 01])"));
 	print("%cpmic_a4_r01)         Set_PMIC_A4_R01_Flag=1;         %s" % ("-", "#(QT TE PMIC-A4 [PMIC FT Release 01])"));
 	print("%cpmic_c0_r01)         Set_PMIC_C0_R01_Flag=1;         %s" % ("-", "#(QT TE PMIC-C0 [PMIC FT Release 01])"));
@@ -289,7 +289,7 @@ DEV_PATH_BBIC5_B1_R11="devices/BBIC5/B1/BBIC5_B1_R11/BBIC5_DEV/waste";          
 DEV_PATH_BBIC5_B1_R12="devices/BBIC5/B1/BBIC5_B1_R12/BBIC5_DEV/waste";                              #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 Release 12).
 DEV_PATH_BBIC5_B1_WS_R01="devices/BBIC5/B1/BBIC5_B1_WS_R01/BBIC5_DEV/waste";                        #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 WS Release 01).
 DEV_PATH_BBIC5_C0_R07="devices/BBIC5/C0/BBIC5_C0_R07/BBIC5_DEV/waste";                              #QT10GA-C0,QT10GS-C0,QT10GT-C0,QT10GU-C0 (BBIC5 Release 07).
-DEV_PATH_BBIC5_D0_R01A="devices/BBIC5/D0/BBIC5_D0_R01A/BBIC5_DEV/waste";                            #QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5 Release 01A).
+DEV_PATH_BBIC5_D0_R02="devices/BBIC5/D0/BBIC5_D0_R02/BBIC5_DEV/waste";                              #QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5 Release 01A).
 DEV_PATH_BBIC6_A0_R01="devices/BBIC6/A0/BBIC6_A0_R01/BBIC6_DEV/waste";                              #QT10GA-AX2,QT10GS-AX2,QT10GT-AX2,QT10GU-AX2 (BBIC6 Release 01).
 DEV_PATH_PMIC_A4_R01="devices/PMIC/A4/PMIC_A4_R01/PMIC_DEV/waste";                                  #PMIC-A4 (PMIC Release 01).
 DEV_PATH_PMIC_C0_R01="devices/PMIC/C0/PMIC_C0_R01/PMIC_DEV/waste";                                  #PMIC-C0 (PMIC Release 01).
@@ -498,10 +498,10 @@ elif (Set_BBIC5_C0_R07_Flag == 1) and (len(sys.argv) == 2):
 	else:
 		print("Current Path = %s   (%s%s%s)\n" % (SED1LINE, "\x1b[31m", "Doesn't exists", "\x1b[0m"));
 	#print(""); #END IF STATEMENT.
-elif (Set_BBIC5_D0_R01A_Flag == 1) and (len(sys.argv) == 2):
+elif (Set_BBIC5_D0_R02_Flag == 1) and (len(sys.argv) == 2):
 	print("\n%s%s%s---------------------------------------------------------------------------%s" % (HEADER_ATTRIB, HEADER_FGCOLR, HEADER_BGCOLR, HEADER_RSTALL));
 	print("Device = %-30s %3s %s" % ("QT10GA/QT10GS/QT10GT/QT10GU", "", "(BBIC5 17mm X 17mm D0)"));
-	DEV_USED_STRING=(os.environ["HOME"] + '/' + DEV_PATH_BBIC5_D0_R01A + '\n');
+	DEV_USED_STRING=(os.environ["HOME"] + '/' + DEV_PATH_BBIC5_D0_R02 + '\n');
 	os.remove(DEV_USED_BBIC5);
 	FILE_DES=os.open(DEV_USED_BBIC5, os.O_RDWR|os.O_CREAT);
 	FILE_RET=os.write(FILE_DES, DEV_USED_STRING);
