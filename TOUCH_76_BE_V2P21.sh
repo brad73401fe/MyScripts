@@ -1,10 +1,10 @@
 #!/bin/bash
 #Author:   BEVERSON
-#DateTime: 2021/01/09 16:53:01 PST
+#DateTime: 2021/01/16 14:25:01 PST
 #Notes:    Default path for bash is "/bin/bash". Optional path for bash is "/usr/local/bin/bash".
 #Notes:    Default path for python is "/usr/bin/python". Optional path for python is "/usr/local/bin/python".
 
-REVISION_STATUS="2021/01/09";
+REVISION_STATUS="2021/01/16";
 
 #source filename [arguments]; EXIT_STATUS=$?; printf "EXIT_STATUS: %s\n" ${EXIT_STATUS}; if [ ${EXIT_STATUS} == 1 ]; then exit 0; fi #(0=Success, 1=Failure).
 
@@ -74,7 +74,7 @@ Set_BBIC5_B1_R11_Flag=0;      #Set flag to default (0). QT10GA-B1,QT10GS-B1,QT10
 Set_BBIC5_B1_R12_Flag=0;      #Set flag to default (0). QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
 Set_BBIC5_B1_WS_R01_Flag=0;   #Set flag to default (0). QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
 Set_BBIC5_C0_R07_Flag=0;      #Set flag to default (0). QT10GA-C0,QT10GS-C0,QT10GT-C0,QT10GU-C0 (BBIC5).
-Set_BBIC5_D0_R01A_Flag=0;     #Set flag to default (0). QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5).
+Set_BBIC5_D0_R02_Flag=0;      #Set flag to default (0). QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5).
 Set_BBIC6_A0_R01_Flag=0;      #Set flag to default (0). QT10GA-AX2,QT10GS-AX2,QT10GT-AX2,QT10GU-AX2 (BBIC6).
 Set_PMIC_A4_R01_Flag=0;       #Set flag to default (0). PMIC-A4 (PMIC).
 Set_PMIC_C0_R01_Flag=0;       #Set flag to default (0). PMIC-C0 (PMIC).
@@ -97,7 +97,7 @@ while [ ${i} -lt ${j} ]; do
 		"-bbic5_b1_r12")        Set_BBIC5_B1_R12_Flag=1;;
 		"-bbic5_b1_ws_r01")     Set_BBIC5_B1_WS_R01_Flag=1;;
 		"-bbic5_c0_r07")        Set_BBIC5_C0_R07_Flag=1;;
-		"-bbic5_d0_r01a")       Set_BBIC5_D0_R01A_Flag=1;;
+		"-bbic5_d0_r02")        Set_BBIC5_D0_R02_Flag=1;;
 		"-bbic6_a0_r01")        Set_BBIC6_A0_R01_Flag=1;;
 		"-pmic_a4_r01")         Set_PMIC_A4_R01_Flag=1;;
 		"-pmic_c0_r01")         Set_PMIC_C0_R01_Flag=1;;
@@ -158,7 +158,7 @@ if [ ${ExitStatus0} == 1 ]; then
 	printf "%cbbic5_b1_r12)        Set_BBIC5_B1_R12_Flag=1;        %s\n" "-" "#(QT TE QT10GA-B1 [BBIC5 FT Release 12])";
 	printf "%cbbic5_b1_ws_r01)     Set_BBIC5_B1_WS_R01_Flag=1;     %s\n" "-" "#(QT TE QT10GA-B1 [BBIC5 WS Release 01])";
 	printf "%cbbic5_c0_r07)        Set_BBIC5_C0_R07_Flag=1;        %s\n" "-" "#(QT TE QT10GA-C0 [BBIC5 FT Release 07])";
-	printf "%cbbic5_d0_r01a)       Set_BBIC5_D0_R01A_Flag=1;       %s\n" "-" "#(QT TE QT10GA-D0 [BBIC5 FT Release 01A])";
+	printf "%cbbic5_d0_r02)        Set_BBIC5_D0_R02_Flag=1;        %s\n" "-" "#(QT TE QT10GA-D0 [BBIC5 FT Release 02])";
 	printf "%cbbic6_a0_r01)        Set_BBIC6_A0_R01_Flag=1;        %s\n" "-" "#(QT TE QT10GA-AX2 [BBIC6 FT Release 01])";
 	printf "%cpmic_a4_r01)         Set_PMIC_A4_R01_Flag=1;         %s\n" "-" "#(QT TE PMIC-A4 [PMIC FT Release 01])";
 	printf "%cpmic_c0_r01)         Set_PMIC_C0_R01_Flag=1;         %s\n" "-" "#(QT TE PMIC-C0 [PMIC FT Release 01])";
@@ -283,17 +283,17 @@ DEV_USED_REL_X550A=.device_inuse_soc.REL_X550A_DEV;                             
 DEV_PATH_AQC100_B10_V1P10=projects/proj_Atlantic/AQC100_B10_V1P10/AQC100_DEV/waste;                 #AQC100-B10 (Atlantic Version 1.10).
 DEV_PATH_AQC107_B10_V1P16=projects/proj_Jamaica/AQC107_B10_V1P16/AQC107_DEV/waste;                  #AQC107-B10 (Jamaica Version 1.16).
 DEV_PATH_AQC111C_B01_V0P25=projects/proj_Bermuda/AQC111C_B01_V0P25/AQC111C_DEV/waste;               #AQC111C-B01 (Bermuda Version 0.25).
-DEV_PATH_BBIC5_B1_R09A=devices/BBIC5/B1/BBIC5_B1_R09A/BBIC5_DEV/waste;                              #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 Release 09A).
-DEV_PATH_BBIC5_B1_R10=devices/BBIC5/B1/BBIC5_B1_R10/BBIC5_DEV/waste;                                #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 Release 10).
-DEV_PATH_BBIC5_B1_R11=devices/BBIC5/B1/BBIC5_B1_R11/BBIC5_DEV/waste;                                #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 Release 11).
-DEV_PATH_BBIC5_B1_R12=devices/BBIC5/B1/BBIC5_B1_R12/BBIC5_DEV/waste;                                #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 Release 12).
-DEV_PATH_BBIC5_B1_WS_R01=devices/BBIC5/B1/BBIC5_B1_WS_R01/BBIC5_DEV/waste;                          #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5 WS Release 01).
-DEV_PATH_BBIC5_C0_R07=devices/BBIC5/C0/BBIC5_C0_R07/BBIC5_DEV/waste;                                #QT10GA-C0,QT10GS-C0,QT10GT-C0,QT10GU-C0 (BBIC5 Release 07).
-DEV_PATH_BBIC5_D0_R01A=devices/BBIC5/D0/BBIC5_D0_R01A/BBIC5_DEV/waste;                              #QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5 Release 01A).
-DEV_PATH_BBIC6_A0_R01=devices/BBIC6/A0/BBIC6_A0_R01/BBIC6_DEV/waste;                                #QT10GA-AX2,QT10GS-AX2,QT10GT-AX2,QT10GU-AX2 (BBIC6 Release 01).
-DEV_PATH_PMIC_A4_R01=devices/PMIC/A4/PMIC_A4_R01/PMIC_DEV/waste;                                    #PMIC-A4 (PMIC Release 01).
-DEV_PATH_PMIC_C0_R01=devices/PMIC/C0/PMIC_C0_R01/PMIC_DEV/waste;                                    #PMIC-C0 (PMIC Release 01).
-DEV_PATH_PMIC_C1_R01=devices/PMIC/C1/PMIC_C1_R01/PMIC_DEV/waste;                                    #PMIC-C1 (PMIC Release 01).
+DEV_PATH_BBIC5_B1_R09A=devices/BBIC5/B1/BBIC5_B1_R09A/BBIC5_DEV/waste;                              #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
+DEV_PATH_BBIC5_B1_R10=devices/BBIC5/B1/BBIC5_B1_R10/BBIC5_DEV/waste;                                #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
+DEV_PATH_BBIC5_B1_R11=devices/BBIC5/B1/BBIC5_B1_R11/BBIC5_DEV/waste;                                #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
+DEV_PATH_BBIC5_B1_R12=devices/BBIC5/B1/BBIC5_B1_R12/BBIC5_DEV/waste;                                #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
+DEV_PATH_BBIC5_B1_WS_R01=devices/BBIC5/B1/BBIC5_B1_WS_R01/BBIC5_DEV/waste;                          #QT10GA-B1,QT10GS-B1,QT10GT-B1,QT10GU-B1 (BBIC5).
+DEV_PATH_BBIC5_C0_R07=devices/BBIC5/C0/BBIC5_C0_R07/BBIC5_DEV/waste;                                #QT10GA-C0,QT10GS-C0,QT10GT-C0,QT10GU-C0 (BBIC5).
+DEV_PATH_BBIC5_D0_R02=devices/BBIC5/D0/BBIC5_D0_R02/BBIC5_DEV/waste;                                #QT10GA-D0,QT10GS-D0,QT10GT-D0,QT10GU-D0 (BBIC5).
+DEV_PATH_BBIC6_A0_R01=devices/BBIC6/A0/BBIC6_A0_R01/BBIC6_DEV/waste;                                #QT10GA-AX2,QT10GS-AX2,QT10GT-AX2,QT10GU-AX2 (BBIC6).
+DEV_PATH_PMIC_A4_R01=devices/PMIC/A4/PMIC_A4_R01/PMIC_DEV/waste;                                    #PMIC-A4 (PMIC).
+DEV_PATH_PMIC_C0_R01=devices/PMIC/C0/PMIC_C0_R01/PMIC_DEV/waste;                                    #PMIC-C0 (PMIC).
+DEV_PATH_PMIC_C1_R01=devices/PMIC/C1/PMIC_C1_R01/PMIC_DEV/waste;                                    #PMIC-C1 (PMIC).
 DEV_PATH_X550A_B0_V1P80=projects/proj_Sageville/X550A_B0_V1P80/X550A_DEV/waste;                     #X550-AT2-B00 (Sageville 17mm Version 1.80).
 DEV_PATH_REL_X550A_B0=projects/proj_Sageville/REL_AMKOR/REL_X550A_TO_AMKOR_DIR;                     #Released to Amkor/PE X550-AT2-B00.
 
@@ -444,13 +444,13 @@ elif [ ${Set_BBIC5_C0_R07_Flag} == 1 ] && [ $# == 1 ]; then
 	else
 		printf "Path   = ${SED1LINE}   (%bDoesn't exists%b)\n" "\e[31m" "\e[0m";
 	fi
-elif [ ${Set_BBIC5_D0_R01A_Flag} == 1 ] && [ $# == 1 ]; then
+elif [ ${Set_BBIC5_D0_R02_Flag} == 1 ] && [ $# == 1 ]; then
 	printf "\n%b%b%b---------------------------------------------------------------------------%b\n" ${HEADER_ATTRIB} ${HEADER_FGCOLR} ${HEADER_BGCOLR} ${HEADER_RSTALL};
 	printf "Device = %-30s %3s %s\n" "QT10GA/QT10GS/QT10GT/QT10GU" "" "(BBIC5 17mm X 17mm D0)";
 	rm -rf    ${DEV_USED_BBIC5}
 	touch     ${DEV_USED_BBIC5}
 	chmod 664 ${DEV_USED_BBIC5}
-	printf "${HOME}/${DEV_PATH_BBIC5_D0_R01A}\n" >> ${DEV_USED_BBIC5};
+	printf "${HOME}/${DEV_PATH_BBIC5_D0_R02}\n" >> ${DEV_USED_BBIC5};
 	cp ${DEV_USED_BBIC5} ${DEV_USED_DEFAULT};
 	cp ${DEV_USED_BBIC5} ${DEV_USED_DEFAULT}@$HOSTNAME;
 	SED1LINE=$(sed -n '1 p' <${DEV_USED_DEFAULT});
